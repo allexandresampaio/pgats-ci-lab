@@ -8,7 +8,7 @@
   on:
     schedule:
       #sintaxe especifica pra definir os momentos de agendamento, minuto, hora, dias, etc
-      # segundas feiras, 6am
+      # sextas feiras, 17:30
       - cron: '30 17 * * 5'
 
   #tarefas que sao executadas dentro dos pipelines sao jobs
