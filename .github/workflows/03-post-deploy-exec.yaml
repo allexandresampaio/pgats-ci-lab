@@ -1,17 +1,17 @@
-  # CI de Nivel 02 - Disparo automatizado por meio de uma rotina agendada
+  # CI de Nivel 03 - Disparo automático a partir de um deploy
 
   # nome do nosso 'pipeline'
-  name: 'Execução Agendada'
+  name: 'Execução por Deploy'
 
   # regras de disparo, gatilhos ou triggers
-  # gatilho de execução agendada = schedule
+  # gatilho de execução a partir de outro pipeline = workflow_run
   on:
-    schedule:
-      #sintaxe especifica pra definir os momentos de agendamento, minuto, hora, dias, etc
-      # sextas feiras, 17:30
-      - cron: '30 17 * * 5'
+    workflow_run:
+      workflows: ['Execução Manual']
+      types:
+        - completed
 
-  #tarefas que sao executadas dentro dos pipelines sao jobs
+    #tarefas que sao executadas dentro dos pipelines sao jobs
   jobs:
     e2e-tests:
 
