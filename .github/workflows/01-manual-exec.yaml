@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
   #tarefas que sao executadas dentro dos pipelines sao jobs
-  job:
+  jobs:
     e2e-tests:
 
       #maquina que o job vai executar
