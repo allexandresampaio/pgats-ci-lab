@@ -50,3 +50,11 @@
         # executor de testes e2e
         - name: Executando testes e2e
           run: yarn run e2e  
+
+         # upload de arquivos
+        - uses: actions/upload-artifact@v4
+          if: ${{ !cancelled() }}
+          # if: ${{ always() }}
+          with:
+            name: relatorio
+            path: ./playwright-report
