@@ -22,6 +22,8 @@ jobs:
 
   unidade:
     runs-on: ubuntu-latest
+    needs: [] #nao depende de nenhum anterior
+    
     steps:
       - uses: actions/checkout@v4
       - name: Instalando Yarn
@@ -35,6 +37,7 @@ jobs:
 
   e2e-tests:
     runs-on: ubuntu-latest
+    needs: [unidade]
 
     steps:
       #clone do projeto
@@ -71,6 +74,7 @@ jobs:
 
   mutacao:
     runs-on: ubuntu-latest
+    needs: [unidade]
 
     steps:
       #clone do projeto
@@ -108,6 +112,8 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    needs: [e2e-tests, inspecao]
+
     steps:
       - name: Executando testes de mutação
         run: echo "Simulando Deploy"
