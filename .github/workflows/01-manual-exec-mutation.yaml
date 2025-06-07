@@ -10,7 +10,7 @@
 
     #tarefas que sao executadas dentro dos pipelines sao jobs
   jobs:
-    e2e-tests:
+    mutation-tests:
 
       #maquina que o job vai executar
       runs-on: ubuntu-latest
@@ -39,5 +39,13 @@
           run: yarn playwright install
 
         # executor de testes e2e
-        - name: Executando testes e2e
+        - name: Executando testes de mutação
           run: yarn run test:mutation
+
+           # upload de arquivos
+        - uses: actions/upload-artifact@v4
+          if: ${{ !cancelled() }}
+          # if: ${{ always() }}
+          with:
+            name: relatorio-mutation
+            path: ./reports/mutation
