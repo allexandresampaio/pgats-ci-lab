@@ -1,7 +1,7 @@
   # CI de Nivel 01 - Disparo manual a partir de 1 clique
 
   # nome do nosso 'pipeline'
-  name: 'Execução Manual'
+  name: 'Execução Manual de Mutation'
 
   # regras de disparo, gatilhos ou triggers
   # gatilho de execução manual = workflow_dispatch
