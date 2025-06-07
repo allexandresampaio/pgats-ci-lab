@@ -22,7 +22,7 @@
       #'${ expressao }'
 
       # se o status de conclusao do pipeline de origem foi de sucesso, ele prossegue aos demais steps
-      if: ${{ github.event.workflow_run.conclusion == success }}
+      if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
       #passos para o script de build
       steps:
